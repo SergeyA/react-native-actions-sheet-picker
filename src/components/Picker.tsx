@@ -8,7 +8,7 @@ import {
   Dimensions,
   SafeAreaView,
 } from 'react-native';
-import ActionSheet, { SheetManager } from 'react-native-actions-sheet';
+import ActionSheet, { ActionSheetRef, SheetManager } from 'react-native-actions-sheet';
 import { FlatList } from 'react-native-gesture-handler';
 
 import type { PickerProps } from './Picker.types';
@@ -42,7 +42,7 @@ export const Picker = <T,>({
 }: PickerProps<T>) => {
   const [selectedKey, setSelectedKey] = useState(null);
 
-  const actionSheetRef = createRef<ActionSheet>();
+  const actionSheetRef = createRef<ActionSheetRef>();
 
   const scrollViewRef = useRef(null);
 
@@ -79,7 +79,7 @@ export const Picker = <T,>({
     <ActionSheet
       id={id}
       ref={actionSheetRef}
-      indicatorColor={'transparent'}
+      // indicatorColor={'transparent'}
       gestureEnabled={true}
       keyboardShouldPersistTaps="always"
       {...actionsSheetProps}
