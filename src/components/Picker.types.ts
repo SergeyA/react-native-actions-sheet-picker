@@ -13,6 +13,7 @@ export type PickerProps<T> = {
   onSearch?: (value: string) => void;
   label?: string;
   placeholderTextColor?: string;
+  backgroundColor?: string;
   closeText?: string;
   setSelected: (value: T) => void;
   loading?: boolean;
