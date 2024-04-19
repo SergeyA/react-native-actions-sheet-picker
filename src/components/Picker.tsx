@@ -33,6 +33,7 @@ export const Picker = <T,>({
   placeholderText = 'Search',
   noDataFoundText = 'No Data Found.',
   placeholderTextColor = '#8B93A5',
+  backgroundColor = '#ffffff',
   setSelected,
   onSearch,
   searchInputProps,
@@ -96,7 +97,7 @@ export const Picker = <T,>({
           ListHeaderComponent={
             <View
               style={{
-                backgroundColor: '#ffffff',
+                backgroundColor: backgroundColor,
               }}
             >
               {searchable ? (
