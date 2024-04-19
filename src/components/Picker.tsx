@@ -116,10 +116,10 @@ export const Picker = <T,>({
                       style={{
                         height: 40,
                         borderWidth: 1,
-                        borderColor: '#CDD4D9',
+                        borderColor: borderColor,
                         borderRadius: 6,
                         padding: 10,
-                        color: '#333',
+                        color: textColor,
                       }}
                       value={inputValue}
                       placeholderTextColor={placeholderTextColor}
@@ -138,7 +138,7 @@ export const Picker = <T,>({
                       onClose();
                     }}
                   >
-                    <Text style={{color: '#333'}}>{closeText}</Text>
+                    <Text style={{color: textColor}}>{closeText}</Text>
                   </TouchableOpacity>
                 </View>
               ) : null}
@@ -146,7 +146,7 @@ export const Picker = <T,>({
               <View style={{ marginTop: 10, paddingBottom: 5 }}>
                 <Text
                   style={{
-                    color: '#333',
+                    color: textColor,
                     fontSize: 16,
                     fontWeight: 'bold',
                   }}
