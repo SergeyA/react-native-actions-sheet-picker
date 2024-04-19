@@ -1,4 +1,4 @@
-import React, { useRef, createRef, useState } from 'react';
+import React, { createRef, useState } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -8,7 +8,7 @@ import {
   Dimensions,
   SafeAreaView,
 } from 'react-native';
-import ActionSheet, { ActionSheetRef, SheetManager } from 'react-native-actions-sheet';
+import ActionSheet, { ActionSheetRef, SheetManager, useScrollHandlers } from 'react-native-actions-sheet';
 import { FlatList } from 'react-native-gesture-handler';
 
 import type { PickerProps } from './Picker.types';
@@ -47,7 +47,7 @@ export const Picker = <T,>({
 
   const actionSheetRef = createRef<ActionSheetRef>();
 
-  const scrollViewRef = useRef(null);
+  const scrollHandlers = useScrollHandlers<FlatList>(id, actionSheetRef);
 
   const onClose = () => {
     SheetManager.hide(id);
@@ -84,7 +84,6 @@ export const Picker = <T,>({
       ref={actionSheetRef}
       // indicatorColor={'transparent'}
       gestureEnabled={true}
-      // keyboardShouldPersistTaps="always"
       {...actionsSheetProps}
     >
       <SafeAreaView
@@ -180,7 +179,6 @@ export const Picker = <T,>({
             }
             return null;
           }}
-          ref={scrollViewRef}
           nestedScrollEnabled={true}
           data={data}
           renderItem={({ item, index }) => {
@@ -195,6 +193,7 @@ export const Picker = <T,>({
             actionSheetRef.current?.handleChildScrollEnd()
           }
           {...flatListProps}
+          {...scrollHandlers}
         />
       </SafeAreaView>
     </ActionSheet>
