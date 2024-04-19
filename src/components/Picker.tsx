@@ -34,6 +34,8 @@ export const Picker = <T,>({
   noDataFoundText = 'No Data Found.',
   placeholderTextColor = '#8B93A5',
   backgroundColor = '#ffffff',
+  borderColor = '#CDD4D9',
+  textColor,
   setSelected,
   onSearch,
   searchInputProps,
@@ -56,14 +58,14 @@ export const Picker = <T,>({
       style={{
         paddingVertical: 20,
         borderBottomWidth: 0.5,
-        borderColor: '#CDD4D9',
+        borderColor: borderColor,
       }}
       onPress={() => {
         itemOnPress(item);
         setSelectedKey(index);
       }}
     >
-      <Text style={{ fontWeight: selectedKey !== index ? 'normal' : 'bold' }}>
+      <Text style={{ fontWeight: selectedKey !== index ? 'normal' : 'bold', color: textColor }}>
         {item.name ? item.name : null}
       </Text>
     </TouchableOpacity>

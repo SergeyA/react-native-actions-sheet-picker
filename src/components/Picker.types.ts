@@ -14,6 +14,8 @@ export type PickerProps<T> = {
   label?: string;
   placeholderTextColor?: string;
   backgroundColor?: string;
+  textColor?: string;
+  borderColor?: string;
   closeText?: string;
   setSelected: (value: T) => void;
   loading?: boolean;
