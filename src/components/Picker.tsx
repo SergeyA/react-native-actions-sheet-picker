@@ -189,9 +189,6 @@ export const Picker = <T,>({
             return <Item item={item} index={index} />;
           }}
           keyExtractor={keyExtractor}
-          onMomentumScrollEnd={() =>
-            actionSheetRef.current?.handleChildScrollEnd()
-          }
           {...flatListProps}
           {...scrollHandlers}
         />
